@@ -8,11 +8,10 @@ Tree::BinaryTree<T>::BinaryTree()
 template<typename T>
 Tree::BinaryTree<T>::~BinaryTree()
 {
-
 }
 
 template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::ClearTree(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+NodePtr Tree::BinaryTree<T>::ClearTree(NodePtr root)
 {
 	if (root == nullptr) 
 		return nullptr;
@@ -24,7 +23,7 @@ std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::ClearTr
 }
 
 template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::PushData(T data, std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+NodePtr Tree::BinaryTree<T>::PushData(T data, NodePtr root)
 {
 	if (root == nullptr)
 	{
@@ -44,7 +43,7 @@ std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::PushDat
 }
 
 template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::FindMin(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+NodePtr Tree::BinaryTree<T>::FindMin(NodePtr root)
 {
 	if (root == nullptr)
 		return nullptr;
@@ -55,18 +54,7 @@ std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::FindMin
 }
 
 template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::FindMax(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
-{
-	if (root == nullptr)
-		return nullptr;
-	else if (root->right == nullptr)
-		return root;
-	else
-		return FindMax(root->right);
-}
-
-template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::PopData(T data, std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+NodePtr Tree::BinaryTree<T>::PopData(T data, NodePtr root)
 {
 	auto tempNode = std::make_shared<Tree::BinaryTree<T>::Node>();
 	if (root == nullptr)
@@ -94,7 +82,7 @@ std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::PopData
 }
 
 template<typename T>
-void Tree::BinaryTree<T>::InOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+void Tree::BinaryTree<T>::InOrder(NodePtr root)
 {
 	if (root == nullptr) return;
 	InOrder(root->left);
@@ -103,7 +91,7 @@ void Tree::BinaryTree<T>::InOrder(std::shared_ptr<typename Tree::BinaryTree<T>::
 }
 
 template<typename T>
-void Tree::BinaryTree<T>::PreOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+void Tree::BinaryTree<T>::PreOrder(NodePtr root)
 {
 	if (root == nullptr) return;
 
@@ -113,7 +101,7 @@ void Tree::BinaryTree<T>::PreOrder(std::shared_ptr<typename Tree::BinaryTree<T>:
 }
 
 template<typename T>
-void Tree::BinaryTree<T>::PostOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root)
+void Tree::BinaryTree<T>::PostOrder(NodePtr root)
 {
 	if (root == nullptr) return;
 	InOrder(root->left);
@@ -122,7 +110,7 @@ void Tree::BinaryTree<T>::PostOrder(std::shared_ptr<typename Tree::BinaryTree<T>
 }
 
 template<typename T>
-std::shared_ptr<typename Tree::BinaryTree<T>::Node> Tree::BinaryTree<T>::Find(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root, T data)
+NodePtr Tree::BinaryTree<T>::Find(NodePtr root, T data)
 {
 	if (root == nullptr)
 		return nullptr;

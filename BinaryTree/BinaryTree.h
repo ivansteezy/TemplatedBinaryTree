@@ -4,6 +4,10 @@
 #include <memory>
 #include <iostream>
 
+//i use this because i have problems with type alias on template nested classes, 
+//but i dont think its a good practice
+#define NodePtr std::shared_ptr<typename Tree::BinaryTree<T>::Node>
+
 namespace Tree
 {
     enum class Order
@@ -16,25 +20,26 @@ namespace Tree
     template <typename T>
     class BinaryTree
     {
+        struct Node;
+
         struct Node
         {
             T data{};
-            std::shared_ptr<typename Tree::BinaryTree<T>::Node> left;
-            std::shared_ptr<typename Tree::BinaryTree<T>::Node> right;
+            NodePtr left;
+            NodePtr right;
         };
 
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> m_Root;
+        NodePtr m_Root;
 
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> ClearTree(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> PushData(T data, std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> PopData(T data, std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> Find(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root, T data);
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> FindMin(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        std::shared_ptr<typename Tree::BinaryTree<T>::Node> FindMax(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
+        NodePtr ClearTree(NodePtr root);
+        NodePtr PushData(T data, NodePtr root);
+        NodePtr PopData(T data, NodePtr root);
+        NodePtr Find(NodePtr root, T data);
+        NodePtr FindMin(NodePtr root);
 
-        void InOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        void PreOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
-        void PostOrder(std::shared_ptr<typename Tree::BinaryTree<T>::Node> root);
+        void InOrder(NodePtr root);
+        void PreOrder(NodePtr root);
+        void PostOrder(NodePtr root);
 
     public:
         BinaryTree();
