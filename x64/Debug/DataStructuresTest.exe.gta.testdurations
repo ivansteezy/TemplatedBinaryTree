@@ -7,5 +7,6 @@
     <TestDuration Test="BinaryTreeTest.SearchTest" Duration="1" />
     <TestDuration Test="BinaryTreeTest.RemoveTest" Duration="1" />
     <TestDuration Test="BinaryTreeTest.TravelTest" Duration="1" />
+    <TestDuration Test="BinaryTreeTest.OrderTest" Duration="1" />
   </TestDurations>
 </GtaTestDurations>
