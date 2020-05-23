@@ -78,6 +78,7 @@ NodePtr Tree::BinaryTree<T>::PopData(T data, NodePtr root)
 			root = root->left;
 	}
 
+	
 	return root;
 }
 

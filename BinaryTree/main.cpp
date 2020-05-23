@@ -3,6 +3,17 @@
 #include "BinaryTree.h"
 #include "BinaryTree.cpp"
 
+void MenuOptions()
+{
+    std::cout << "1.-Insertar un nuevo nodo." <<
+                 "2.-Buscar elemento en el arbol." <<
+                 "3.-Recorrido PreOrder." <<
+                 "4.-Recorrido InOrder." <<
+                 "5.-Recorrido PostOrden." <<
+                 "6.-Eliminar un nodo del arbol" <<
+                 std::endl;
+}
+
 int main()
 {
     std::cout << "Hola mundo" << std::endl;
@@ -14,9 +25,18 @@ int main()
     tree->Insert(1);
     tree->Insert(9);
 
+
+    tree->Remove(9);
     auto res = tree->Search(9);
 
-    if (res) std::cout << "Si se encontro tu elemento" << std::endl;
+    if (res)
+    {
+        std::cout << "Si se encontro tu elemento \n \n";
+    }
+    else
+    {
+        std::cout << "No se encontro tu elemento \n \n";
+    }
 
     std::cout << "Recorridoooos" << std::endl;
 
