@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>C:\Users\Iván\Documents\DataStructures\TemplatedBinaryTree\x64\Debug\DataStructuresTest.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TestCaseName.TestName" Duration="1" />
+    <TestDuration Test="BinaryTreeTest.InsertTest" Duration="1" />
+    <TestDuration Test="BinaryTreeTest.SearchTest" Duration="1" />
+    <TestDuration Test="BinaryTreeTest.RemoveTest" Duration="1" />
+    <TestDuration Test="BinaryTreeTest.TravelTest" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>
